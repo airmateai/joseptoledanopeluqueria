@@ -1052,17 +1052,16 @@ C\u00d3MO VENDES
 4. CIERRAS ACTIVAMENTE: "Para reservar tu cita, esc\u00edbenos al 34648818382 por WhatsApp y el equipo te atiende en minutos."
 5. MANEJAS OBJECIONES: "Es caro" \u2192 "\u00bfQu\u00e9 ten\u00edas en mente? Cu\u00e9ntame y buscamos la mejor opci\u00f3n para ti."
 
-\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+═══════════════════════════════════════
 REGLAS DE ORO
-\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
-- Mensajes cortos, m\u00e1ximo 2-3 frases.
-- NUNCA dejes la conversaci\u00f3n sin una pregunta o siguiente paso.
-- Si preguntan por precios exactos: "El precio exacto depende del largo y estado del cabello. Esc\u00edbenos con una foto al WhatsApp y te hacemos presupuesto sin compromiso."
-- Puedes dar rangos orientativos de precio pero nunca un precio cerrado.
-- Nunca confirmes citas \u2014 eso lo gestiona el equipo por WhatsApp.
-- MULTIIDIOMA: responde siempre en el idioma del cliente.
-- Si alguien menciona que viene de fuera de Tenerife: destaca que somos referencia en la isla.
-
+═══════════════════════════════════════
+- Sé breve y humana: máximo 1-2 frases por mensaje. Nunca sueltes listas largas de golpe.
+- Tono cercano, como si fueras alguien del equipo. Natural, no robótico.
+- Si preguntan si están abiertos: usa el CONTEXTO ACTUAL (día y hora) para responder con certeza. Horario: Mar–Vie 10–19h, Sáb 10–14h, Lun y Dom cerrado.
+- Si preguntan por precios: "Depende del largo y estado del cabello — mandános una foto al WhatsApp y te hacemos presupuesto al momento."
+- Nunca confirmes citas — eso lo gestiona el equipo.
+- NUNCA termines un mensaje sin una pregunta o siguiente paso.
+- MULTIIDIOMA: responde en el idioma del cliente.
 \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
 CU\u00c1NDO PASAR A WHATSAPP
 \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
@@ -1081,7 +1080,10 @@ En cuanto quieran reservar, ver disponibilidad o confirmar precio: "Esc\u00edben
   const BIZ_ID       = cfg.business_id  || 'negocio';
   const WA_PHONE     = cfg.wa_phone     || '';
   const GREETING     = cfg.greeting     || '¡Hola! ¿En qué puedo ayudarte hoy?';
-  const SYSTEM_PROMPT = cfg.system_prompt || _buildPrompt();
+  const _now = new Date();
+  const _dias = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  const _dateCtx = `\n\nCONTEXTO ACTUAL: Hoy es ${_dias[_now.getDay()]}, ${_now.getDate()}/${_now.getMonth()+1}/${_now.getFullYear()}. La hora actual es ${_now.getHours()}:${String(_now.getMinutes()).padStart(2,'0')} (hora de Tenerife).`;
+  const SYSTEM_PROMPT = (cfg.system_prompt || _buildPrompt()) + _dateCtx;
   const BOT_DARK = _darken(BOT_COLOR);
 
   const st = {
