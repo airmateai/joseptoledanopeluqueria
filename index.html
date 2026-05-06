@@ -288,10 +288,10 @@
     .servicios-intro .divider-oro { margin: 1.5rem auto; }
 
     /* Chapter */
-    .svc-chapter { padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
+    .svc-chapter { padding: 2.5rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
     .svc-chapter:nth-child(even) { background: rgba(255,255,255,0.012); }
     .svc-chapter-header {
-      display: flex; align-items: flex-end; gap: 2rem; margin-bottom: 3rem;
+      display: flex; align-items: flex-end; gap: 2rem; margin-bottom: 1.5rem;
       position: relative; overflow: hidden;
     }
     .svc-chapter-bg {
@@ -324,7 +324,7 @@
       gap: 1px; background: rgba(255,255,255,0.04);
     }
     .svc-card {
-      background: var(--negro); padding: 2.5rem 2rem;
+      background: var(--negro); padding: 1.4rem 1.5rem;
       position: relative; overflow: hidden; transition: background 0.4s, transform 0.3s;
     }
     .svc-card::before {
@@ -351,47 +351,49 @@
     .svc-card:hover .svc-card-watermark { color: rgba(201,168,76,0.1); transform: scale(1.05); }
     .svc-card-num {
       font-family: var(--sans); font-size: 0.52rem; letter-spacing: 3px;
-      color: var(--oro); opacity: 0.55; margin-bottom: 1.2rem; display: block;
+      color: var(--oro); opacity: 0.55; margin-bottom: 0.5rem; display: block;
     }
     .svc-card h3 {
-      font-family: var(--serif); font-size: 1.45rem; font-weight: 400;
-      color: var(--blanco); letter-spacing: 0.5px; margin-bottom: 0.7rem;
+      font-family: var(--serif); font-size: 1.35rem; font-weight: 400;
+      color: var(--blanco); letter-spacing: 0.5px; margin-bottom: 0.4rem;
       transition: color 0.3s;
     }
     .svc-card:hover h3 { color: var(--oro); }
     .svc-card p { font-size: 0.78rem; color: var(--texto); line-height: 1.75; font-weight: 300; }
 
     /* Image placeholder inside service cards */
+    @keyframes goldFrame {
+      0%   { box-shadow: 0 0 4px 1px rgba(201,168,76,0.25), inset 0 0 4px 0 rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.35); }
+      50%  { box-shadow: 0 0 12px 3px rgba(232,201,122,0.55), inset 0 0 8px 1px rgba(232,201,122,0.18); border-color: rgba(232,201,122,0.85); }
+      100% { box-shadow: 0 0 4px 1px rgba(201,168,76,0.25), inset 0 0 4px 0 rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.35); }
+    }
     .svc-card-img {
-      width: 100%; aspect-ratio: 16/9;
+      width: 100%; aspect-ratio: 4/3;
       background: rgba(255,255,255,0.025);
-      border: 1px dashed rgba(201,168,76,0.18);
-      margin-bottom: 1.5rem; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.35);
+      animation: goldFrame 3s ease-in-out infinite;
     }
-    .svc-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .svc-card-img::after {
-      content: '➕ imagen'; font-size: 0.5rem; letter-spacing: 3px;
-      text-transform: uppercase; color: rgba(201,168,76,0.2);
-    }
-    .svc-card-img:has(img)::after { display: none; }
+    .svc-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+    .svc-card-img::after { display: none; }
 
     /* Bob Especialista — featured card */
     .svc-card-featured {
       grid-column: 1 / -1;
-      display: grid; grid-template-columns: 1fr; gap: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
       background: rgba(201,168,76,0.03) !important;
       border-left: 2px solid var(--oro) !important;
     }
     .svc-card-featured::before { transform: scaleY(1) !important; }
     .svc-card-featured-img {
-      aspect-ratio: auto; height: 100%; min-height: 220px;
+      aspect-ratio: auto; height: 100%; min-height: 420px;
       background: rgba(255,255,255,0.025);
-      border-right: 1px solid rgba(201,168,76,0.1);
       overflow: hidden; position: relative;
-      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(201,168,76,0.35);
+      animation: goldFrame 3s ease-in-out infinite;
+      animation-delay: 0.8s;
     }
-    .svc-card-featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .svc-card-featured-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     .svc-card-featured-img::after {
       content: '➕ imagen destacada'; font-size: 0.5rem; letter-spacing: 3px;
       text-transform: uppercase; color: rgba(201,168,76,0.2);
@@ -436,7 +438,9 @@
       font-family: var(--serif); font-size: 1.1rem; font-weight: 300;
       color: rgba(201,168,76,0.18); letter-spacing: 8px; white-space: nowrap; font-style: italic;
     }
-    .novias-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 1; }
+    .novias-card-img { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; border: 1px solid rgba(201,168,76,0.35); animation: goldFrame 3s ease-in-out infinite; animation-delay: 1.4s; }
+    .novias-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; position: relative; z-index: 1; }
+    .novias-card-img .novias-img-secondary { border-left: 1px solid rgba(201,168,76,0.15); }
     .novias-card-img:has(img)::after, .novias-card-img:has(img)::before { display: none; }
     .novias-card-body { padding: 4rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
     .novias-tag {
@@ -852,30 +856,35 @@
       </div>
       <div class="svc-grid">
         <div class="svc-card">
+          <div class="svc-card-img"><img src="img/balayage.jpg" alt="Balayage"></div>
           <div class="svc-card-watermark">01</div>
           <span class="svc-card-num">01</span>
           <h3>Balayage</h3>
           <p>Técnica francesa de iluminación a mano alzada para un resultado natural y luminoso, adaptado a tu tono de piel.</p>
         </div>
         <div class="svc-card">
+          <div class="svc-card-img"><img src="img/babylights.jpg" alt="Babylights"></div>
           <div class="svc-card-watermark">02</div>
           <span class="svc-card-num">02</span>
           <h3>Babylights</h3>
           <p>Mechas ultra finas que imitan los reflejos naturales del sol. El resultado más sutil y sofisticado.</p>
         </div>
         <div class="svc-card">
+          <div class="svc-card-img"><img src="img/melting-chocolate.jpg" alt="Rubios Platinos"></div>
           <div class="svc-card-watermark">03</div>
           <span class="svc-card-num">03</span>
           <h3>Rubios Platinos</h3>
           <p>Máxima decoloración con el mayor cuidado del cabello. Especialistas en platinos seguros y duraderos.</p>
         </div>
         <div class="svc-card">
+          <div class="svc-card-img"><img src="img/freehand.jpg" alt="Freehand"></div>
           <div class="svc-card-watermark">04</div>
           <span class="svc-card-num">04</span>
           <h3>Freehand</h3>
           <p>Color pintado a mano libre sin papel. La técnica más artística y personalizada de la colorimetría moderna.</p>
         </div>
         <div class="svc-card">
+          <div class="svc-card-img"><img src="img/pulp-riot.jpg" alt="Colorimetría Pulp Riot"></div>
           <div class="svc-card-watermark">05</div>
           <span class="svc-card-num">05</span>
           <h3>Colorimetría Pulp Riot</h3>
@@ -897,6 +906,9 @@
       <div class="svc-grid">
         <!-- Bob: tarjeta destacada, ocupa fila completa -->
         <div class="svc-card svc-card-featured">
+          <div class="svc-card-featured-img">
+            <img src="img/bob-especialista.jpg" alt="Bob Especialista — Josep Toledano">
+          </div>
           <div class="svc-card-featured-body">
             <span class="svc-card-featured-badge">Especialidad</span>
             <span class="svc-card-num">01</span>
@@ -905,6 +917,7 @@
           </div>
         </div>
         <div class="svc-card">
+          <div class="svc-card-img"><img src="img/melenas-midi.jpg" alt="Melenas Midi"></div>
           <div class="svc-card-watermark">02</div>
           <span class="svc-card-num">02</span>
           <h3>Melenas Midi</h3>
@@ -947,14 +960,18 @@
         <div class="svc-chapter-line"></div>
         <div class="svc-chapter-bg">SPA</div>
       </div>
-      <div class="svc-grid">
+      <div class="svc-grid" style="grid-template-columns: repeat(2, 1fr);">
         <div class="svc-card">
+          <div class="svc-card-img"><img src="img/spa-capilar.jpg" alt="Epres Tratamiento Capilar"></div>
           <div class="svc-card-watermark">01</div>
           <span class="svc-card-num">01</span>
-          <h3>S-Plex</h3>
+          <h3>Epres</h3>
           <p>Tratamiento regenerador de última generación. Reconstruye y fortalece la fibra capilar desde el interior para un cabello sano y lleno de vida.</p>
         </div>
         <div class="svc-card">
+          <div class="svc-card-img" style="aspect-ratio:4/3; background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, rgba(8,8,8,0) 60%), #0d0d0d; display:flex; align-items:center; justify-content:center;">
+            <span style="font-family:var(--serif); font-size:1.1rem; color:rgba(201,168,76,0.2); letter-spacing:6px; font-style:italic;">hidratación</span>
+          </div>
           <div class="svc-card-watermark">02</div>
           <span class="svc-card-num">02</span>
           <h3>Hidratación Profunda</h3>
@@ -974,7 +991,10 @@
         <div class="svc-chapter-bg">NOVIAS</div>
       </div>
       <div class="novias-card">
-        <div class="novias-card-img"><!-- imagen Novias --></div>
+        <div class="novias-card-img">
+          <img src="img/novias-recogido.jpg" alt="Peinado de novia — recogido con perlas">
+          <img src="img/novias-rubia.jpg" alt="Peinado de novia — ondas sueltas" class="novias-img-secondary">
+        </div>
         <div class="novias-card-body">
           <span class="novias-tag">Servicio Exclusivo</span>
           <h2 class="novias-title"><em>Novias</em></h2>
