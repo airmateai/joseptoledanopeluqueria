@@ -694,9 +694,9 @@
 
       /* Servicios */
       .svc-card-featured { grid-template-columns: 1fr; }
-      .svc-card-featured-img { min-height: 200px; }
+      .svc-card-featured-img { min-height: 300px; border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
       .novias-card { grid-template-columns: 1fr; }
-      .novias-card-img { min-height: 260px; }
+      .novias-card-img { min-height: 320px; grid-template-columns: 1fr 1fr; }
       .novias-card-body { padding: 2.5rem 1.5rem; }
       .novias-card-img { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
       #servicios { padding: 4rem 0; }
@@ -705,7 +705,11 @@
       .svc-chapter-bg { font-size: 4.5rem; }
       .svc-chapter-title { font-size: 1.9rem; }
       .svc-chapter-line { display: none; }
-      .svc-grid { grid-template-columns: 1fr; }
+      .svc-grid { grid-template-columns: 1fr !important; }
+      .svc-card-img { aspect-ratio: 4/5; }
+      .svc-card-img img { object-position: center center; }
+      .svc-card { padding: 0 0 1.4rem 0; }
+      .svc-card-img { margin-bottom: 1rem; }
 
       /* Reserva */
       #reserva { padding: 4rem 1.2rem; background-attachment: scroll; }
