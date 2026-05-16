@@ -114,21 +114,23 @@
     #inicio::after {
       content: '';
       position: absolute; bottom: 0; left: 0; right: 0;
-      height: 220px; z-index: 1;
-      background: linear-gradient(to bottom, transparent, rgba(8,8,8,0.75));
+      height: 160px; z-index: 1;
+      background: linear-gradient(to bottom, transparent, rgba(8,8,8,0.6));
       pointer-events: none;
     }
     #inicio {
-      position: relative;
-      display: block;
+      position: relative; min-height: 100vh;
+      display: flex; align-items: flex-end; justify-content: center;
       overflow: hidden;
     }
     .hero-bg {
-      position: relative; z-index: 0;
-      width: 100%;
+      position: absolute; inset: 0; z-index: 0;
+      overflow: hidden;
     }
     .hero-bg img {
-      width: 100%; height: auto;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
       display: block;
     }
     .hero-video {
@@ -139,9 +141,9 @@
     .hero-video.active { display: block; }
     
     .hero-content { 
-      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-      z-index: 2; width: 100%; max-width: 750px;
-      text-align: center; padding: 0 1.5rem;
+      position: relative; z-index: 2;
+      width: 100%; max-width: 750px;
+      text-align: center; padding: 0 1.5rem 3rem;
     }
     .hero-line {
       display: flex; align-items: center; justify-content: center; gap: 1.2rem;
@@ -207,8 +209,8 @@
     #inicio::after {
       content: '';
       position: absolute; bottom: 0; left: 0; right: 0;
-      height: 220px; z-index: 1;
-      background: linear-gradient(to bottom, transparent, rgba(8,8,8,0.75));
+      height: 160px; z-index: 1;
+      background: linear-gradient(to bottom, transparent, rgba(8,8,8,0.6));
       pointer-events: none;
     }
     #inicio { padding-bottom: 4rem; }
@@ -682,8 +684,8 @@
     #inicio::after {
       content: '';
       position: absolute; bottom: 0; left: 0; right: 0;
-      height: 220px; z-index: 1;
-      background: linear-gradient(to bottom, transparent, rgba(8,8,8,0.75));
+      height: 160px; z-index: 1;
+      background: linear-gradient(to bottom, transparent, rgba(8,8,8,0.6));
       pointer-events: none;
     }
     #inicio { padding: 100px 1.2rem 3rem; min-height: 100svh; align-items: flex-start; flex-direction: column; justify-content: center; }
@@ -808,7 +810,7 @@
       <a href="#servicios" class="btn-oro-outline">Ver servicios</a>
     </div>
   </div>
-  <div class="hero-rating" style="position:absolute;bottom:1rem;right:1.5rem;z-index:3;">
+  <div class="hero-rating">
     <span class="stars">★★★★★</span>
     <span class="hero-rating-num">4.8</span>
   </div>
